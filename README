@@ -1,0 +1,30 @@
+Salesforce Automated Translation Tool
+
+Takes Salesforce's STF files and runs them through Google's Translate API
+
+
+Requirements:
+- MySQL
+- PHP command line
+- Text editor
+
+
+Installation:
+- Import translate.sql into your database
+- Edit translate.php and set your Google Translation API key
+
+
+Usage:
+- Download your STF language files from Salesforce
+- Open the STF file in your text editor
+- Remove the top lines of the file that include comments and settings (store these for later use)
+- Import the new STF file into the MySQL database
+	- import records in the translate table
+	- map the first column to "item"
+	- map the second column to "english"
+- Edit translate.php and set the language you want to translate to
+- From your command line run "php translate.php"
+- When the job completes export the translate table as a tabbed delimited file with the extension STF
+- Put your the header that you stripped out of the file back into the file
+- Upload the STF into Salesforce
+- Truncate your translate table in MySQL
