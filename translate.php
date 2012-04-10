@@ -10,7 +10,7 @@ $language = 'fr';
 mysql_connect("127.0.0.1", "root", "root") or die(mysql_error());
 mysql_select_db("translate") or die(mysql_error());
 
-$result = mysql_query("SELECT * FROM translate") or die(mysql_error());  
+$result = mysql_query("SELECT * FROM translate WHERE translation = '' OR translation IS NULL") or die(mysql_error());  
 
 
 while($row = mysql_fetch_array( $result )) {
